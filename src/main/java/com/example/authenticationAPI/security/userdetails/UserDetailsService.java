@@ -23,7 +23,7 @@ public class UserDetailsService implements org.springframework.security.core.use
         return new UserDetailsImpl(user);
     }
 
-    private User getSubscriptionType(String email) {
+    public User getSubscriptionType(String email) {
         Optional<User> user = userRepository.findByEmail(email);
 
         if(user.isEmpty()) {
@@ -31,6 +31,5 @@ public class UserDetailsService implements org.springframework.security.core.use
         }
         return user.get();
     }
-
 
 }
